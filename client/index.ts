@@ -7,7 +7,7 @@ const judgeCommand = (action) =>{
   if(action == ''){//空行のとき
     return
   }
-  let arg = action.split(' ')
+  const arg = action.split(' ')
 
   switch (arg[0]) {
     case 'namako':
