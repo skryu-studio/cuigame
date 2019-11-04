@@ -7,21 +7,40 @@ const judgeCommand = (action) =>{
   if(action == ''){//空行のとき
     return
   }
-  switch (action) {
-    case "namakocanon":
-      console.log(`*[SYSTEM] ${action} starting...`)
+  let arg = action.split(' ')
+
+  switch (arg[0]) {
+    case "namako":
+      if ( !arg[1] || arg.length > 2){
+        console.log("*[SYSTEM] (ex)namako canon")
+        break
+      }
+      if (arg[1] == "canon"){
+        console.log(`*[SYSTEM] ${action} starting...`)
+      }else{
+        console.log(`*[SYSTEM] ${arg[1]} is not "namako" argument`)
+      }
       break
-    
+
+    case "survay":
+      console.log(typeof Number(arg[1]))
+      if ( !arg[1] || arg.length > 2){
+        console.log("*[SYSTEM] (ex) 'survay [1~2]' to survay ")
+        break
+      }
+      if (typeof Number(arg[1]) == "number"){
+        console.log(`*[SYSTEM] ${action} starting...`)
+      }else{
+        console.log(`*[SYSTEM] ${action} is not "survay" argument`)
+      }
+      break
     default:
       console.log(`*[SYSTEM] unknown command "${action}"`)
       break
   }
 }
 
-
 while( true ){
-
   const action = readlineSync.question(`${name}> `)
   judgeCommand(action)
 }
-
