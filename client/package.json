@@ -1,0 +1,29 @@
+{
+  "name": "cuigame",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "ts-node index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sKawashima/cuigame.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sKawashima/cuigame/issues"
+  },
+  "homepage": "https://github.com/sKawashima/cuigame#readme",
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  },
+  "devDependencies": {
+    "@types/node": "^12.12.5",
+    "ts-node": "^8.4.1",
+    "ts-node-dev": "^1.0.0-pre.44",
+    "typescript": "^3.6.4"
+  }
+}
