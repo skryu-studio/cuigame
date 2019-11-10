@@ -20,15 +20,14 @@ const userInit = () => {
   player.positionX = 1
   player.positionY = 1
   console.log(`*[SYSTEM] hello, ${player.name}! glhf!`)
-  console.log(`*[SYSTEM] now, your position is (${player.positionX},${player.positionY}).`)
+  console.log(`*[SYSTEM] now, your position is (${player.positionX}, ${player.positionY}).`)
 }
 
 const move = (directionChain) => {
-  console.log(`*[SYSTEM] ok, move start from (${player.positionX},${player.positionY}).`)
+  console.log(`*[SYSTEM] ok, move start from (${player.positionX}, ${player.positionY}).`)
   let count = 0
   while (count < directionChain.length){
-    let direction = directionChain.slice(count , count+1)
-    console.log(direction)
+    const direction = directionChain.slice(count , count+1)
     switch (direction) {
       case "r":
         player.positionX += 1
@@ -51,7 +50,7 @@ const move = (directionChain) => {
     }
     count++
   }
-  console.log(`*[SYSTEM]now, your position is (${player.positionX},${player.positionY}).`)
+  console.log(`*[SYSTEM] now, your position is (${player.positionX}, ${player.positionY}).`)
 }
 const info = () => {
   console.log(`< your status >`);
@@ -96,7 +95,7 @@ const judgeCommand = (action) =>{
     case 'move':
       if(arg.length != 2){
         console.log("*[SYSTEM] (ex) if you wanna RIGHT 2,UP 1, type")
-        console.log("*[SYSTEM]      'move rru' or 'move urr' or 'rur'")
+        console.log("*[SYSTEM]      'move rru' or 'move urr' or 'move rur'")
         break
       }
       move(arg[1])
