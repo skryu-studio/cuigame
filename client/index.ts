@@ -1,5 +1,13 @@
 import * as readlineSync from 'readline-sync'
 
+const map = [
+  [0,0,0,0,0],
+  [0,0,0,0,0],
+  [0,0,0,0,0],
+  [0,0,0,0,0],
+  [0,0,0,0,0],
+]
+
 const name = readlineSync.question('what your name?:')
 console.log(`hello, ${name}! glhf!`)
 
