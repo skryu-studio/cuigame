@@ -9,12 +9,20 @@ const map = [
 ]
 
 const player = {
-  'name': 'playername'
+  'name': 'playername',
+  'positionX': 2,
+  'positionY': 3
 }
 
-console.log(`pos is (${map[0][0]})`)
-player.name = readlineSync.question('what your name?:')
-console.log(`hello, ${player.name}! glhf!`)
+const userInit = () => {
+  player.name = readlineSync.question('what your name?:')
+  player.positionX = 1
+  player.positionY = 1
+  console.log(`hello, ${player.name}! glhf!`)
+  console.log(`now, your position is (${player.positionX},${player.positionY}).`)
+}
+
+userInit()
 
 const judgeCommand = (action) =>{
   if(action == ''){//空行のとき
