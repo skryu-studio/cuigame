@@ -10,6 +10,7 @@ const map = [
 
 const player = {
   'name': 'playername',
+  'health': 10,
   'positionX': 2,
   'positionY': 3
 }
@@ -52,6 +53,12 @@ const move = (directionChain) => {
   }
   console.log(`*[SYSTEM]now, your position is (${player.positionX},${player.positionY}).`)
 }
+const info = () => {
+  console.log(`< your status >`);
+  console.log(`*[name] : ${player.name}`)
+  console.log(`*[health] : ${player.health}`)
+  console.log(`*[position] : (${player.positionX},${player.positionY})`)
+}
 
 userInit()
 
@@ -93,6 +100,13 @@ const judgeCommand = (action) =>{
         break
       }
       move(arg[1])
+      break
+    case 'info':
+      if(arg.length != 1){
+        console.log("*[SYSTEM] for your information, just type 'info'.  ")
+        break
+      }
+      info()
       break
 
     default:
