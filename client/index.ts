@@ -18,16 +18,39 @@ const userInit = () => {
   player.name = readlineSync.question('what your name?:')
   player.positionX = 1
   player.positionY = 1
-  console.log(`hello, ${player.name}! glhf!`)
-  console.log(`now, your position is (${player.positionX},${player.positionY}).`)
+  console.log(`*[SYSTEM] hello, ${player.name}! glhf!`)
+  console.log(`*[SYSTEM] now, your position is (${player.positionX},${player.positionY}).`)
 }
 
-const move = () => {
-  // move right
-  // move left
-  // move up
-  // move down
-  console.log("moved to ****");
+const move = (directionChain) => {
+  console.log(`*[SYSTEM] ok, move start from (${player.positionX},${player.positionY}).`)
+  let count = 0
+  while (count < directionChain.length){
+    let direction = directionChain.slice(count , count+1)
+    console.log(direction)
+    switch (direction) {
+      case "r":
+        player.positionX += 1
+        break
+      
+      case "l":
+        player.positionX -= 1
+        break
+      
+      case "u":
+        player.positionY += 1
+        break
+      
+      case "d":
+        player.positionY -= 1
+        break
+      
+      default:
+        break
+    }
+    count++
+  }
+  console.log(`*[SYSTEM]now, your position is (${player.positionX},${player.positionY}).`)
 }
 
 userInit()
@@ -65,10 +88,11 @@ const judgeCommand = (action) =>{
 
     case 'move':
       if(arg.length != 2){
-        console.log("*[SYSTEM] (ex) 'move [*****]' to move other position")
+        console.log("*[SYSTEM] (ex) if you wanna RIGHT 2,UP 1, type")
+        console.log("*[SYSTEM]      'move rru' or 'move urr' or 'rur'")
         break
       }
-      move()
+      move(arg[1])
       break
 
     default:
