@@ -8,8 +8,13 @@ const map = [
   [0,0,0,0,0],
 ]
 
-const name = readlineSync.question('what your name?:')
-console.log(`hello, ${name}! glhf!`)
+const player = {
+  'name': 'playername'
+}
+
+console.log(`pos is (${map[0][0]})`)
+player.name = readlineSync.question('what your name?:')
+console.log(`hello, ${player.name}! glhf!`)
 
 const judgeCommand = (action) =>{
   if(action == ''){//空行のとき
@@ -47,7 +52,9 @@ const judgeCommand = (action) =>{
   }
 }
 
+const move = () => {}
+
 while( true ){
-  const action = readlineSync.question(`${name}> `)
+  const action = readlineSync.question(`${player.name}> `)
   judgeCommand(action)
 }
