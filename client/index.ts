@@ -22,6 +22,14 @@ const userInit = () => {
   console.log(`now, your position is (${player.positionX},${player.positionY}).`)
 }
 
+const move = () => {
+  // move right
+  // move left
+  // move up
+  // move down
+  console.log("moved to ****");
+}
+
 userInit()
 
 const judgeCommand = (action) =>{
@@ -54,13 +62,20 @@ const judgeCommand = (action) =>{
         console.log(`*[SYSTEM] ${action} is not 'survay' argument`)
       }
       break
+
+    case 'move':
+      if(arg.length != 2){
+        console.log("*[SYSTEM] (ex) 'move [*****]' to move other position")
+        break
+      }
+      move()
+      break
+
     default:
       console.log(`*[SYSTEM] unknown command '${action}'`)
       break
   }
 }
-
-const move = () => {}
 
 while( true ){
   const action = readlineSync.question(`${player.name}> `)
