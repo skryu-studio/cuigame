@@ -1,4 +1,5 @@
 import * as readlineSync from 'readline-sync'
+import { move, shoot, info, survay } from './userActions'
 
 const map = [
   [0, 0, 0, 0, 0],
@@ -23,55 +24,6 @@ const userInit = () => {
   console.log(
     `*[SYSTEM] now, your position is (${player.positionX}, ${player.positionY}).`
   )
-}
-
-const move = directionChain => {
-  console.log(
-    `*[SYSTEM] ok, move start from (${player.positionX}, ${player.positionY}).`
-  )
-  let count = 0
-  while (count < directionChain.length) {
-    const direction = directionChain.slice(count, count + 1)
-    switch (direction) {
-      case 'r':
-        player.positionX += 1
-        break
-
-      case 'l':
-        player.positionX -= 1
-        break
-
-      case 'u':
-        player.positionY += 1
-        break
-
-      case 'd':
-        player.positionY -= 1
-        break
-
-      default:
-        break
-    }
-    count++
-  }
-  console.log(
-    `*[SYSTEM] now, your position is (${player.positionX}, ${player.positionY}).`
-  )
-}
-
-const shoot = () => {
-  console.log('shoot')
-}
-
-const info = () => {
-  console.log(`< your status >`)
-  console.log(`*[name] : ${player.name}`)
-  console.log(`*[health] : ${player.health}`)
-  console.log(`*[position] : (${player.positionX},${player.positionY})`)
-}
-
-const survay = survayRange => {
-  console.log(`*[SYSTEM] survay around ${survayRange} starting...`)
 }
 
 userInit()
@@ -102,7 +54,7 @@ const judgeCommand = action => {
         break
       }
       if (typeof Number(arg[1]) == 'number') {
-        survay(arg[1])
+        survay(arg[1], player)
       } else {
         console.log(`*[SYSTEM] ${action} is not 'survay' argument`)
       }
@@ -114,14 +66,14 @@ const judgeCommand = action => {
         console.log("*[SYSTEM]      'move rru' or 'move urr' or 'move rur'")
         break
       }
-      move(arg[1])
+      move(arg[1], player)
       break
     case 'info':
       if (arg.length != 1) {
         console.log("*[SYSTEM] for your information, just type 'info'.  ")
         break
       }
-      info()
+      info(player)
       break
 
     case 'shoot':
@@ -129,7 +81,7 @@ const judgeCommand = action => {
         console.log('*[SYSTEM] just type shoot')
         break
       }
-      shoot()
+      shoot(player)
       break
 
     default:
