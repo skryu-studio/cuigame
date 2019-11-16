@@ -29,6 +29,11 @@
     "ts-node-dev": "^1.0.0-pre.44",
     "typescript": "^3.6.4"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  },
   "prettier": {
     "singleQuote": true,
     "trailingComma": "es5",
