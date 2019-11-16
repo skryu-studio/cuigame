@@ -52,6 +52,11 @@ const move = (directionChain) => {
   }
   console.log(`*[SYSTEM] now, your position is (${player.positionX}, ${player.positionY}).`)
 }
+
+const shoot = () => {
+  console.log("shoot")
+}
+
 const info = () => {
   console.log(`< your status >`);
   console.log(`*[name] : ${player.name}`)
@@ -107,6 +112,15 @@ const judgeCommand = (action) =>{
       }
       info()
       break
+      
+    case 'shoot':
+      if(arg.length != 1){
+        console.log("*[SYSTEM] jsut type shoot")
+        break
+      }
+      shoot()
+      break
+
 
     default:
       console.log(`*[SYSTEM] unknown command '${action}'`)
