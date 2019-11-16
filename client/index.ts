@@ -70,6 +70,10 @@ const info = () => {
   console.log(`*[position] : (${player.positionX},${player.positionY})`)
 }
 
+const survay = survayRange => {
+  console.log(`*[SYSTEM] survay around ${survayRange} starting...`)
+}
+
 userInit()
 
 const judgeCommand = action => {
@@ -98,7 +102,7 @@ const judgeCommand = action => {
         break
       }
       if (typeof Number(arg[1]) == 'number') {
-        console.log(`*[SYSTEM] ${action} starting...`)
+        survay(arg[1])
       } else {
         console.log(`*[SYSTEM] ${action} is not 'survay' argument`)
       }
