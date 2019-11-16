@@ -112,10 +112,10 @@ const judgeCommand = (action) =>{
       }
       info()
       break
-      
+
     case 'shoot':
       if(arg.length != 1){
-        console.log("*[SYSTEM] jsut type shoot")
+        console.log("*[SYSTEM] just type shoot")
         break
       }
       shoot()
