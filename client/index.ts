@@ -36,18 +36,6 @@ const judgeCommand = action => {
   const arg = action.split(' ')
 
   switch (arg[0]) {
-    case 'namako':
-      if (arg.length != 2) {
-        console.log(`*[SYSTEM] (ex) 'namako canon'`)
-        break
-      }
-      if (arg[1] == 'canon') {
-        console.log(`*[SYSTEM] ${action} starting...`)
-      } else {
-        console.log(`*[SYSTEM] ${arg[1]} is not 'namako' argument`)
-      }
-      break
-
     case 'survay':
       if (arg.length != 2) {
         console.log(`*[SYSTEM] (ex) 'survay [1~2]' to survay`)
@@ -77,11 +65,7 @@ const judgeCommand = action => {
       break
 
     case 'shoot':
-      if (arg.length != 1) {
-        console.log('*[SYSTEM] just type shoot')
-        break
-      }
-      shoot(player)
+      shoot(player, action)
       break
 
     default:

@@ -32,8 +32,27 @@ const move = (directionChain, player) => {
   )
 }
 
-const shoot = player => {
-  console.log('shoot')
+const shoot = (player, args) => {
+  const arg = args.split(' ') // args = "shoot arg2 arg3 ..."
+  let shootDirection = 0
+  if (arg.length >= 2) {
+    console.log('*[SYSTEM] just type "shoot" "direction ')
+  }
+  switch (arg[1]) {
+    case 'u':
+      shootDirection = 12
+      break
+    case 'r':
+      shootDirection = 3
+      break
+    case 'd':
+      shootDirection = 6
+      break
+    case 'l':
+      shootDirection = 9
+      break
+  }
+  console.log(`*[SYSTEM] shoot ${shootDirection}`)
 }
 
 const info = player => {
