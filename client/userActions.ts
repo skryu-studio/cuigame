@@ -55,11 +55,16 @@ const shoot = (player, args) => {
   console.log(`*[SYSTEM] shoot ${shootDirection}`)
 }
 
-const info = player => {
-  console.log(`< your status >`)
-  console.log(`*[name] : ${player.name}`)
-  console.log(`*[health] : ${player.health}`)
-  console.log(`*[position] : (${player.positionX},${player.positionY})`)
+const info = (player, args) => {
+  const arg = args.split(' ') // args = "shoot arg2 arg3 ..."
+  if (arg.length != 1) {
+    console.log("*[SYSTEM] for your information, just type 'info'.  ")
+  } else {
+    console.log(`< your status >`)
+    console.log(`*[name] : ${player.name}`)
+    console.log(`*[health] : ${player.health}`)
+    console.log(`*[position] : (${player.positionX},${player.positionY})`)
+  }
 }
 
 const survay = (survayRange, player) => {

@@ -57,11 +57,7 @@ const judgeCommand = action => {
       move(arg[1], player)
       break
     case 'info':
-      if (arg.length != 1) {
-        console.log("*[SYSTEM] for your information, just type 'info'.  ")
-        break
-      }
-      info(player)
+      info(player, action)
       break
 
     case 'shoot':
