@@ -1,4 +1,11 @@
-const move = (directionChain, player) => {
+const move = (player, args) => {
+  const arg = args.split(' ')
+  const directionChain = arg[1]
+  if (arg.length != 2) {
+    console.log('*[SYSTEM] (ex) if you wanna RIGHT 2,UP 1, type')
+    console.log("*[SYSTEM]      'move rru' or 'move urr' or 'move rur'")
+    return
+  }
   console.log(
     `*[SYSTEM] ok, move start from (${player.positionX}, ${player.positionY}).`
   )

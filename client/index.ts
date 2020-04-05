@@ -49,12 +49,7 @@ const judgeCommand = action => {
       break
 
     case 'move':
-      if (arg.length != 2) {
-        console.log('*[SYSTEM] (ex) if you wanna RIGHT 2,UP 1, type')
-        console.log("*[SYSTEM]      'move rru' or 'move urr' or 'move rur'")
-        break
-      }
-      move(arg[1], player)
+      move(player, action)
       break
     case 'info':
       info(player, action)
