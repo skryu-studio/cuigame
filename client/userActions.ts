@@ -1,5 +1,5 @@
-const move = (player, args) => {
-  const arg = args.split(' ')
+const move = (player, action) => {
+  const arg = action.split(' ')
   const directionChain = arg[1]
   if (arg.length != 2) {
     console.log('*[SYSTEM] (ex) if you wanna RIGHT 2,UP 1, type')
@@ -39,8 +39,8 @@ const move = (player, args) => {
   )
 }
 
-const shoot = (player, args) => {
-  const arg = args.split(' ') // args = "shoot arg2 arg3 ..."
+const shoot = (player, action) => {
+  const arg = action.split(' ') // action = "shoot arg2 arg3 ..."
   let shootDirection = 0
   if (arg.length >= 2) {
     console.log('*[SYSTEM] just type "shoot" "direction ')
@@ -62,8 +62,8 @@ const shoot = (player, args) => {
   console.log(`*[SYSTEM] shoot ${shootDirection}`)
 }
 
-const info = (player, args) => {
-  const arg = args.split(' ') // args = "shoot arg2 arg3 ..."
+const info = (player, action) => {
+  const arg = action.split(' ') // action = "shoot arg2 arg3 ..."
   if (arg.length != 1) {
     console.log("*[SYSTEM] for your information, just type 'info'.  ")
   } else {
@@ -74,8 +74,18 @@ const info = (player, args) => {
   }
 }
 
-const survay = (survayRange, player) => {
-  console.log(`*[SYSTEM] survay around ${survayRange} starting...`)
+const survay = (player, action) => {
+  const arg = action.split(' ')
+  const survayRange = arg[1]
+  if (arg.length != 2) {
+    console.log(`*[SYSTEM] (ex) 'survay [1~2]' to survay`)
+    return
+  }
+  if (!isNaN(arg[1])) {
+    console.log(`*[SYSTEM] survay around ${survayRange} starting...`)
+  } else {
+    console.log(`*[SYSTEM] ${arg[1]} is not 'survay' argument`)
+  }
 }
 
 export { move, shoot, info, survay }

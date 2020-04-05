@@ -37,15 +37,7 @@ const judgeCommand = action => {
 
   switch (arg[0]) {
     case 'survay':
-      if (arg.length != 2) {
-        console.log(`*[SYSTEM] (ex) 'survay [1~2]' to survay`)
-        break
-      }
-      if (typeof Number(arg[1]) == 'number') {
-        survay(arg[1], player)
-      } else {
-        console.log(`*[SYSTEM] ${action} is not 'survay' argument`)
-      }
+      survay(player, action)
       break
 
     case 'move':
