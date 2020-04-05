@@ -1,14 +1,6 @@
 import * as readlineSync from 'readline-sync'
 import { move, shoot, info, survay } from './userActions'
 
-const map = [
-  [0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0],
-]
-
 const player = {
   name: 'playername',
   health: 10,
